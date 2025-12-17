@@ -10,13 +10,13 @@ public class Cli_Interface{
 
     while(running){
       printMenu();
-      int choice = readInt(sc,"Choose an option: ");
+      int choice = readInt(sc,"=>");
 
       switch (choice){
-        case 1 -> System.out.println("Total Worked hours :");
-        case 2 -> System.out.println("Total written lines: ");
-        case 3 -> System.out.println("Current Project stats: ");
-        case 4 -> System.out.println("Change Project: ");
+        case 1 -> TotalTime(sc);
+        case 2 -> TotalLine(sc);
+        case 3 -> CurrentProject(sc);
+        case 4 -> ChangeProject(sc);
         case 5 -> {
           System.out.println("Exiting, Goodbye\n ~RokaTekk");
           running = false;
@@ -27,6 +27,102 @@ public class Cli_Interface{
     }
     sc.close();
   }
+
+
+
+
+  private static void ChangeProject(Scanner sc){
+    while(true){
+      System.out.println("Change the project");
+      System.out.println("Current Project $ProjectName");
+      System.out.println("0 - Refresh");
+      System.out.println("1 - Back");
+
+
+      int choice = readInt(sc,"=>");
+      switch(choice){
+        case 0 -> {
+          continue;
+        }
+        case 1 -> {
+          return;
+        }
+      }
+    }
+  }
+
+
+  private static void TotalTime(Scanner sc){
+    while(true){
+      System.out.println("---Total-Time-Worked---");
+      System.out.println("WW:DD:HH:MM:SS");
+      System.out.println("-----------");
+      System.out.println("0 - Refresh");
+      System.out.println("1 - Back");
+
+      int choice = readInt(sc,"=>");
+      switch(choice){
+        case 0 -> {
+          continue;
+        }
+        case 1 -> {
+          return;
+        }
+      }
+
+    }
+  }
+
+  private static void TotalLine(Scanner sc){
+    while(true){
+      System.out.println("---Total-Lines---");
+      System.out.println("XXXX- Lines");
+      System.out.println("Project Size : - XX GB");
+      System.out.println("---------");
+      System.out.println("0 - Refresh");
+      System.out.println("1 - Back");
+
+      int choice = readInt(sc,"=>");
+      switch(choice){
+        case 0 -> {
+          continue;
+        }
+        case 1 -> {
+          return;
+        }
+      }
+
+    }
+  }
+
+
+  private static void CurrentProject(Scanner sc){
+    while(true){
+      System.out.println("---Project-Statistics---");
+      System.out.println("Project -> $ProjectName");
+      System.out.println("Total Lines : XXXX Lines");
+      System.out.println("Total Size  : XX GB ");
+      System.out.println("Time Worked : WW:DD:HH:MM:SS");
+      System.out.println("---------------------------------");
+      System.out.println("Today's Session:\n WW:DD:HH:MM:SS\n XXXX: Lines");
+      System.out.println("0 - Refresh");
+      System.out.println("1 - Back");
+
+      int choice = readInt(sc,"=>");
+      switch(choice){
+        case 0 -> {
+          continue;
+        }
+        case 1 -> {
+          return;
+        }
+      }
+
+    }
+  }
+
+
+
 
   private static void printMenu(){
     System.out.println("---RokaTekk - WorkTracker---");
@@ -39,7 +135,7 @@ public class Cli_Interface{
 
   private static int readInt(Scanner sc, String prompt){
     while(true){
-      System.out.println(prompt);
+      System.out.print(prompt);
       String line = sc.nextLine().trim();
       try {
         return Integer.parseInt(line);
